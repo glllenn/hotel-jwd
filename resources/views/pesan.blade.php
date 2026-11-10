@@ -471,7 +471,13 @@
                                     value="{{ old('nama_pemesan') }}"
                                     placeholder="Contoh: Raden Glenn Marcel"
                                     autocomplete="name"
+                                    pattern="[a-zA-Z\s\'.\-]+"
+                                    title="Hanya karakter huruf dan spasi yang diperbolehkan"
                                     required>
+                                <div class="field-error-msg js-error" id="namaJsError" style="display: none;">
+                                    <i data-lucide="alert-circle"></i>
+                                    Nama hanya boleh berisi huruf dan spasi (tidak boleh angka).
+                                </div>
                                 @error('nama_pemesan')
                                     <div class="field-error-msg">
                                         <i data-lucide="alert-circle"></i>
@@ -849,21 +855,23 @@
         'Deluxe': {
             harga: 550000,
             image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=700&q=80',
-            desc: 'Kamar luas dengan jendela panorama pemandangan kota, tempat tidur king-size, bathtub marmer mewah, dan mini bar pilihan.'
+            desc: 'Kamar luas dengan jendela panorama pemandangan rimbun pinus, tempat tidur king-size, bathtub marmer mewah, dan mini bar pilihan.'
         },
-        'Executive': {
-            harga: 850000,
-            image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=80',
-            desc: 'Pengalaman privat dengan ruang tamu terpisah, akses VIP Executive Lounge, afternoon tea, dan layanan concierge 24 jam.'
+        'Family Suite': {
+            harga: 1200000,
+            image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80',
+            desc: 'Suite luas untuk keluarga tercinta dengan 2 kamar tidur terpisah, ruang makan, mini pantry, balkon pemandangan alam, dan kapasitas 4-6 tamu.'
         },
         'Family': {
             harga: 1200000,
             image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80',
-            desc: 'Suite lapang untuk keluarga dengan 2 kamar tidur terpisah, ruang makan, mini pantry, dan balkon luas menghadap kolam renang.'
+            desc: 'Suite luas untuk keluarga tercinta dengan 2 kamar tidur terpisah, ruang makan, mini pantry, balkon pemandangan alam, dan kapasitas 4-6 tamu.'
         }
     };
 
     // 2. DOM Elements
+    const namaEl            = document.getElementById('nama_pemesan');
+    const namaJsErrorEl     = document.getElementById('namaJsError');
     const tipeKamarEl       = document.getElementById('tipe_kamar');
     const lokasiHotelEl     = document.getElementById('lokasi_hotel');
     const hargaDisplayEl    = document.getElementById('harga_kamar_display');
@@ -958,7 +966,39 @@
         previewLivePrice.textContent = '-';
     }
 
-    // 6. Validasi Ketat NIK (Wajib 16 Digit)
+    // 6a. Validasi Nama Pemesan (Wajib Huruf & Spasi, Tanpa Angka)
+    function validateNama() {
+        if (!namaEl) return true;
+        const val = namaEl.value;
+        // Jika ada angka, otomatis buang secara langsung
+        if (/[0-9]/.test(val)) {
+            namaEl.value = val.replace(/[0-9]/g, '');
+            if (namaJsErrorEl) {
+                namaJsErrorEl.style.display = 'flex';
+            }
+            namaEl.classList.add('is-invalid');
+            return false;
+        }
+
+        const trimmed = namaEl.value.trim();
+        const isValid = /^[a-zA-Z\s\'.\-]+$/.test(trimmed);
+
+        if (trimmed.length > 0 && !isValid) {
+            if (namaJsErrorEl) {
+                namaJsErrorEl.style.display = 'flex';
+            }
+            namaEl.classList.add('is-invalid');
+            return false;
+        } else {
+            if (namaJsErrorEl) {
+                namaJsErrorEl.style.display = 'none';
+            }
+            namaEl.classList.remove('is-invalid');
+            return trimmed.length > 0;
+        }
+    }
+
+    // 6b. Validasi Ketat NIK (Wajib 16 Digit)
     function validateNik() {
         const val = nikEl.value.trim();
         // Hanya izinkan angka
@@ -996,6 +1036,16 @@
     function executeCalculation() {
         const tipe = tipeKamarEl.value;
         const info = ROOM_DATA[tipe];
+
+        // Validasi Nama
+        if (!validateNama()) {
+            if (namaJsErrorEl) namaJsErrorEl.style.display = 'flex';
+            if (namaEl) {
+                namaEl.classList.add('is-invalid');
+                namaEl.focus();
+            }
+            return;
+        }
 
         // Validasi NIK
         if (!validateNik()) {
@@ -1060,6 +1110,20 @@
     }
 
     // 8. Event Listeners
+    if (namaEl) {
+        namaEl.addEventListener('input', validateNama);
+        namaEl.addEventListener('keydown', (e) => {
+            // Blokir tombol angka 0-9 langsung saat ditekan
+            if ((e.key >= '0' && e.key <= '9') && !e.ctrlKey && !e.altKey && !e.metaKey) {
+                e.preventDefault();
+                if (namaJsErrorEl) {
+                    namaJsErrorEl.style.display = 'flex';
+                }
+                namaEl.classList.add('is-invalid');
+            }
+        });
+    }
+
     tipeKamarEl.addEventListener('change', updateRoomSelection);
     lokasiHotelEl.addEventListener('change', updateLocationSelection);
     tanggalPesanEl.addEventListener('change', updateSidebarDetails);

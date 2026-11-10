@@ -14,7 +14,7 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->string('nomor_identitas', 20);
             $table->string('lokasi_hotel')->default('JWD Sudirman Jakarta');
-            $table->enum('tipe_kamar', ['Standar', 'Deluxe', 'Executive', 'Family']);
+            $table->string('tipe_kamar', 50);
             $table->decimal('harga_kamar', 15, 2);
             $table->date('tanggal_pesan');
             $table->integer('durasi_menginap');

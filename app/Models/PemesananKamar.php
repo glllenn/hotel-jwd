@@ -45,10 +45,9 @@ class PemesananKamar extends Model
     public static function daftarHarga(): array
     {
         return [
-            'Standar'   => 350000,
-            'Deluxe'    => 550000,
-            'Executive' => 850000,
-            'Family'    => 1200000,
+            'Standar'      => 350000,
+            'Deluxe'       => 550000,
+            'Family Suite' => 1200000,
         ];
     }
 

@@ -9,7 +9,7 @@
        Strictly Aligned Buttons & Clean Monochromatic Minimalist Style
        ============================================================ */
     .pricing-hero {
-        padding: 40px 0 50px;
+        padding: 24px 0 32px;
         background: #FFFFFF;
         text-align: center;
     }
@@ -21,10 +21,10 @@
 
     .pricing-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 24px;
-        margin-top: 36px;
-        margin-bottom: 70px;
+        margin-top: 24px;
+        margin-bottom: 50px;
         align-items: stretch;
     }
 
@@ -43,9 +43,9 @@
     }
 
     .pricing-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-2px);
         border-color: var(--forest-border);
-        box-shadow: var(--shadow-float);
+        box-shadow: var(--shadow-soft);
     }
 
     .pricing-card.featured {
@@ -71,7 +71,7 @@
     .pricing-card-img-wrap {
         position: relative;
         width: 100%;
-        aspect-ratio: 16/10;
+        aspect-ratio: 16/9;
         overflow: hidden;
         background: var(--bg-subtle);
     }
@@ -85,41 +85,42 @@
     }
 
     .pricing-card:hover .pricing-card-img {
-        transform: scale(1.06);
+        transform: scale(1.04);
     }
 
     .pricing-card-body {
-        padding: 24px 22px;
+        padding: 18px 20px 20px;
         display: flex;
         flex-direction: column;
         flex: 1;
     }
 
     .pricing-room-type {
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         color: var(--text-faint);
-        margin-bottom: 4px;
+        margin-bottom: 3px;
     }
 
     .pricing-card-title {
-        font-size: 1.25rem;
-        font-weight: 800;
-        color: var(--text-heading);
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--forest-900);
         letter-spacing: -0.02em;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
     }
 
     .price-block {
-        margin-bottom: 18px;
-        padding-bottom: 16px;
+        margin-bottom: 14px;
+        padding-bottom: 12px;
         border-bottom: 1px solid var(--border-base);
     }
 
     .price-main {
-        font-size: 1.55rem;
+        font-size: 1.5rem;
         font-weight: 800;
         color: var(--forest-800);
         letter-spacing: -0.03em;
@@ -143,7 +144,7 @@
         color: #166534;
         border-radius: var(--radius-full);
         padding: 3px 9px;
-        margin-top: 8px;
+        margin-top: 6px;
     }
 
     .discount-calc-badge svg { width: 12px; height: 12px; }
@@ -152,9 +153,9 @@
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        margin-bottom: 22px;
-        min-height: 124px;
+        gap: 8px;
+        margin-bottom: 18px;
+        min-height: 104px;
         flex-grow: 1; /* Pushes card-footer-btns strictly to bottom */
     }
 
@@ -221,13 +222,14 @@
         text-decoration: none;
         transition: all 0.2s ease;
         width: 100%;
-        box-shadow: 0 2px 8px rgba(27, 56, 43, 0.2);
+        box-shadow: none;
     }
 
     .btn-card-book:hover {
         background: var(--forest-hover);
         color: #FFFFFF;
         transform: translateY(-1px);
+        box-shadow: none;
     }
 
     .btn-card-book svg { width: 14px; height: 14px; }
@@ -236,12 +238,12 @@
        SECTION: JAMINAN & STANDAR INKLUSIF MENGINAP (CLEAN & ELEGANT)
        ============================================================ */
     .section-inclusions {
-        background: linear-gradient(180deg, #FAFDFB 0%, #F3F7F5 100%);
-        border: 1px solid var(--forest-border);
+        background: #FFFFFF;
+        border: 1px solid var(--border-base);
         border-radius: var(--radius-2xl);
         padding: 48px 44px;
         margin-bottom: 60px;
-        box-shadow: 0 12px 36px -8px rgba(27, 56, 43, 0.08);
+        box-shadow: none;
     }
 
     .inclusions-header-wrap {
@@ -271,9 +273,9 @@
     }
 
     .inclusion-card:hover {
-        transform: translateY(-4px);
+        transform: translateY(-2px);
         border-color: var(--forest-accent);
-        box-shadow: 0 10px 24px -4px rgba(27, 56, 43, 0.1);
+        box-shadow: none;
     }
 
     .inclusion-icon-badge {
@@ -596,10 +598,11 @@
     }
 
     .modal-room-name {
-        font-size: 1.5rem;
-        font-weight: 800;
-        color: var(--text-heading);
-        letter-spacing: -0.03em;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.65rem;
+        font-weight: 700;
+        color: var(--forest-900);
+        letter-spacing: -0.02em;
         margin-bottom: 6px;
     }
 
@@ -731,12 +734,7 @@
 <section class="pricing-hero">
     <div class="container">
         <div class="pricing-hero-inner" data-aos="fade-up">
-            <span class="section-eyebrow">Tarif &amp; Spesifikasi Resmi</span>
-            <h1 class="section-heading">Koleksi Kamar &amp; Pilihan Tarif</h1>
-            <p class="section-subheading" style="margin: 0 auto;">
-                Pilihan akomodasi berstandar bintang lima dengan garansi harga transparan, fasilitas lengkap,
-                serta potongan otomatis 10% untuk masa menginap lebih dari 3 hari.
-            </p>
+            <h1 class="section-heading" style="margin-bottom: 0;">Koleksi Kamar &amp; Pilihan Tarif</h1>
         </div>
 
         {{-- ============================================================
@@ -829,50 +827,8 @@
                 </div>
             </div>
 
-            {{-- 3. Kamar Executive --}}
-            <div class="pricing-card" data-room-key="Executive" data-aos="fade-up" data-aos-delay="300">
-                <div class="pricing-card-img-wrap">
-                    <img class="pricing-card-img"
-                        src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=80"
-                        alt="Kamar Executive Lumina Pasific"
-                        loading="lazy">
-                </div>
-                <div class="pricing-card-body">
-                    <div class="pricing-room-type">Kemewahan VIP</div>
-                    <h3 class="pricing-card-title">Kamar Executive</h3>
-
-                    <div class="price-block">
-                        <div class="price-main">
-                            Rp 850.000 <small>/malam</small>
-                        </div>
-                        <div class="discount-calc-badge">
-                            <i data-lucide="percent"></i>
-                            Inap &gt;3 Hari: <strong>Rp 765.000</strong>
-                        </div>
-                    </div>
-
-                    <ul class="pricing-specs-list">
-                        <li class="pricing-spec-item"><i data-lucide="users"></i> Kapasitas 2-3 Tamu</li>
-                        <li class="pricing-spec-item"><i data-lucide="maximize"></i> 62 m² Luas Ruangan</li>
-                        <li class="pricing-spec-item"><i data-lucide="sparkles"></i> Jacuzzi &amp; Ruang Tamu</li>
-                        <li class="pricing-spec-item"><i data-lucide="shield-check"></i> Akses Pine VIP Lounge</li>
-                    </ul>
-
-                    <div class="card-footer-btns">
-                        <button type="button" class="btn-card-expand">
-                            <i data-lucide="maximize-2"></i>
-                            Rincian Detail Kamar
-                        </button>
-                        <a href="{{ route('pesan', ['tipe' => 'Executive']) }}" class="btn-card-book">
-                            <i data-lucide="calendar-check"></i>
-                            Reservasi Executive
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            {{-- 4. Family Suite --}}
-            <div class="pricing-card" data-room-key="Family" data-aos="fade-up" data-aos-delay="400">
+            {{-- 3. Family Suite --}}
+            <div class="pricing-card" data-room-key="Family Suite" data-aos="fade-up" data-aos-delay="300">
                 <div class="pricing-card-img-wrap">
                     <img class="pricing-card-img"
                         src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80"
@@ -880,7 +836,7 @@
                         loading="lazy">
                 </div>
                 <div class="pricing-card-body">
-                    <div class="pricing-room-type">Keluarga Besar</div>
+                    <div class="pricing-room-type">Keluarga &amp; Rombongan</div>
                     <h3 class="pricing-card-title">Family Suite</h3>
 
                     <div class="price-block">
@@ -894,10 +850,10 @@
                     </div>
 
                     <ul class="pricing-specs-list">
-                        <li class="pricing-spec-item"><i data-lucide="users"></i> Kapasitas 4-6 Orang Tamu</li>
+                        <li class="pricing-spec-item"><i data-lucide="users"></i> Kapasitas 4-6 Tamu</li>
                         <li class="pricing-spec-item"><i data-lucide="bed-double"></i> 2 Kamar Tidur Terpisah</li>
                         <li class="pricing-spec-item"><i data-lucide="utensils"></i> Ruang Makan &amp; Pantry</li>
-                        <li class="pricing-spec-item"><i data-lucide="trees"></i> Balkon Pemandangan Pool</li>
+                        <li class="pricing-spec-item"><i data-lucide="trees"></i> Balkon Pemandangan Alam</li>
                     </ul>
 
                     <div class="card-footer-btns">
@@ -905,7 +861,7 @@
                             <i data-lucide="maximize-2"></i>
                             Rincian Detail Kamar
                         </button>
-                        <a href="{{ route('pesan', ['tipe' => 'Family']) }}" class="btn-card-book">
+                        <a href="{{ route('pesan', ['tipe' => 'Family Suite']) }}" class="btn-card-book">
                             <i data-lucide="calendar-check"></i>
                             Reservasi Family Suite
                         </a>
@@ -922,7 +878,6 @@
         <div class="section-inclusions" data-aos="fade-up">
             <div class="inclusions-header-wrap">
                 <div>
-                    <span class="section-eyebrow">Standar &amp; Hak Istimewa Tamu</span>
                     <h2 class="section-heading" style="font-size: 1.85rem; margin-bottom: 6px;">
                         Jaminan Kenyamanan Tanpa Biaya Tersembunyi
                     </h2>
@@ -930,7 +885,7 @@
                         Setiap reservasi kamar di Lumina Pasific telah mencakup seluruh standar keramahan bintang lima dan fasilitas kawasan secara cuma-cuma.
                     </p>
                 </div>
-                <div style="font-size: 0.8125rem; font-weight: 700; color: var(--forest-800); background: #FFFFFF; padding: 8px 18px; border-radius: var(--radius-full); border: 1px solid var(--forest-border); display:inline-flex; align-items:center; gap:6px; box-shadow: var(--shadow-subtle);">
+                <div style="font-size: 0.8125rem; font-weight: 700; color: var(--forest-800); background: #FFFFFF; padding: 8px 18px; border-radius: var(--radius-full); border: 1px solid var(--border-base); display:inline-flex; align-items:center; gap:6px; box-shadow: none;">
                     <i data-lucide="shield-check" style="width:15px; height:15px; color:var(--forest-accent);"></i>
                     Transparansi 100% Terjamin
                 </div>
@@ -998,7 +953,6 @@
              SECTION: KEUNTUNGAN TAMBAHAN (CLEAN & ELEGANT)
              ============================================================ --}}
         <div class="comparison-perks-box" data-aos="fade-up">
-            <span class="section-eyebrow">Keuntungan Tambahan</span>
             <h2 class="section-heading" style="font-size: 1.85rem;">Standar Kenyamanan Lumina Pasific</h2>
 
             <div class="perks-grid">
@@ -1080,8 +1034,7 @@
                     <span style="font-size:0.75rem; font-weight:700; color:var(--text-faint); margin-right:4px;">Kategori:</span>
                     <button type="button" class="modal-cat-tab-btn" data-cat-key="Standar">Standar</button>
                     <button type="button" class="modal-cat-tab-btn" data-cat-key="Deluxe">Deluxe</button>
-                    <button type="button" class="modal-cat-tab-btn" data-cat-key="Executive">Executive</button>
-                    <button type="button" class="modal-cat-tab-btn" data-cat-key="Family">Family Suite</button>
+                    <button type="button" class="modal-cat-tab-btn" data-cat-key="Family Suite">Family Suite</button>
                 </div>
 
                 <div class="modal-room-eyebrow" id="modalRoomCategory">Kategori Kamar</div>
@@ -1184,22 +1137,22 @@
                 'Diskon otomatis 10% untuk masa inap di atas 3 hari'
             ]
         },
-        'Executive': {
-            category: 'Kategori Kemewahan Privat',
-            title: 'Kamar Executive',
-            price: 'Rp 850.000',
-            image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=85',
-            lead: 'Kombinasi sempurna antara privasi dan kemewahan. Menghadirkan area ruang tamu terpisah, fasilitas check-in prioritas, dan akses eksklusif ke Pine Hearth Lounge.',
-            area: '62 m² Luas Ruang',
-            guests: 'Maks. 2-3 Tamu',
-            bed: 'Super King-size Featherbed',
-            view: 'High-floor Forest View',
+        'Family Suite': {
+            category: 'Kategori Keluarga &amp; Rombongan',
+            title: 'Family Suite',
+            price: 'Rp 1.200.000',
+            image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1200&q=85',
+            lead: 'Suite luas yang dirancang khusus untuk kehangatan liburan bersama keluarga tercinta. Terdiri atas dua kamar tidur terpisah, ruang makan, mini pantry, dan balkon privat yang lapang.',
+            area: '90 m² Luas Ruang',
+            guests: 'Kapasitas 4-6 Tamu',
+            bed: '1 King-size + 2 Twin Beds',
+            view: 'Pool &amp; Pine Forest View',
             features: [
-                'Akses eksklusif Pine VIP Lounge & afternoon tea gratis setiap sore',
-                'Ruang tamu terpisah dengan sofa santai dan meja jamuan',
-                'Kamar mandi walk-in closet dengan bathtub whirlpool jacuzzi',
-                'Layanan personal concierge siaga penuh 24 jam',
-                'Opsi penambahan sarapan buffet hanya Rp 80.000 / hari',
+                '2 kamar tidur terpisah dengan 2 kamar mandi pribadi lengkap',
+                'Area mini pantry dengan microwave, kulkas besar, dan perlengkapan makan',
+                'Balkon privat luas menghadap kolam renang dan rimbun pepohonan',
+                'Akses tanpa batas ke Kids Wonderland Club untuk anak-anak',
+                'Opsi penambahan sarapan buffet hanya Rp 80.000 / hari per orang',
                 'Diskon otomatis 10% untuk masa inap di atas 3 hari'
             ]
         },

@@ -9,27 +9,34 @@
        Inspired by clean editorial Scandinavian / Nature Resort design
        ============================================================ */
     .hero-heavenstead-section {
-        padding: 0 0 16px;
+        min-height: calc(100vh - 86px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 8px 0 28px;
         background: #FFFFFF;
+        box-sizing: border-box;
     }
 
     .hero-card-frame {
         background: #FFFFFF;
         border: 1px solid var(--border-base);
         border-radius: var(--radius-2xl);
-        box-shadow: 0 16px 48px -8px rgba(15, 23, 42, 0.08);
+        box-shadow: 0 12px 36px -8px rgba(15, 23, 42, 0.07);
         overflow: hidden;
         display: grid;
         grid-template-columns: 1.05fr 1fr;
         position: relative;
-        max-height: calc(100vh - 76px);
+        height: calc(100vh - 138px);
+        min-height: 520px;
+        max-height: 590px;
     }
 
     /* Left Column: Vertical Nature Forest Photo */
     .hero-photo-container {
         position: relative;
         overflow: hidden;
-        min-height: 380px;
+        min-height: 360px;
         height: 100%;
         background: #142B21;
     }
@@ -40,12 +47,8 @@
         object-fit: cover;
         object-position: center 35%;
         display: block;
-        transform: scale(1.02);
-        transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .hero-card-frame:hover .hero-nature-img {
-        transform: scale(1.06);
+        transform: none !important;
+        transition: none !important;
     }
 
     .hero-photo-gradient {
@@ -66,49 +69,50 @@
     .hero-editorial-badges-row {
         display: grid;
         grid-template-columns: 1fr 1.35fr;
-        gap: 12px;
+        gap: 10px;
         margin-top: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     .editorial-stat-card {
         background: #F8FAF9;
         border: 1px solid var(--border-base);
         border-radius: var(--radius-lg);
-        padding: 13px 16px;
+        padding: 13px 18px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        min-height: 104px;
+        min-height: 102px;
         transition: all 0.25s ease;
     }
 
     .editorial-stat-card:hover {
         border-color: var(--forest-accent);
         background: #FFFFFF;
-        box-shadow: 0 6px 20px rgba(27, 56, 43, 0.08);
+        box-shadow: none;
     }
 
     .stat-card-number {
-        font-size: 1.65rem;
+        font-family: inherit;
+        font-size: 1.85rem;
         font-weight: 800;
         color: var(--forest-800);
         line-height: 1;
         letter-spacing: -0.03em;
-        margin-bottom: 3px;
+        margin-bottom: 4px;
     }
 
     .stat-card-label {
         font-size: 0.78rem;
         font-weight: 700;
         color: var(--text-heading);
-        margin-bottom: 3px;
+        margin-bottom: 2px;
     }
 
     .stat-card-desc {
         font-size: 0.6875rem;
         color: var(--text-muted);
-        line-height: 1.4;
+        line-height: 1.38;
         margin: 0;
     }
 
@@ -116,11 +120,11 @@
         background: #F8FAF9;
         border: 1px solid var(--border-base);
         border-radius: var(--radius-lg);
-        padding: 13px 16px;
+        padding: 13px 18px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-height: 104px;
+        min-height: 102px;
         position: relative;
         transition: all 0.25s ease;
     }
@@ -128,36 +132,36 @@
     .editorial-review-card:hover {
         border-color: var(--forest-accent);
         background: #FFFFFF;
-        box-shadow: 0 6px 20px rgba(27, 56, 43, 0.08);
+        box-shadow: none;
     }
 
     .review-card-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 6px;
+        margin-bottom: 5px;
     }
 
     .review-stars-minimal {
         color: #D97706;
-        font-size: 0.78rem;
+        font-size: 0.75rem;
         letter-spacing: 2px;
     }
 
     .review-tag-pill {
-        font-size: 0.6875rem;
+        font-size: 0.625rem;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.06em;
         color: var(--forest-800);
         background: var(--forest-subtle);
-        padding: 2px 8px;
+        padding: 2px 7px;
         border-radius: var(--radius-full);
     }
 
     .editorial-reviews-slider {
         position: relative;
-        height: 58px;
+        height: 54px;
         overflow: hidden;
     }
 
@@ -165,7 +169,7 @@
         position: absolute;
         inset: 0;
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateY(10px);
         transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
         pointer-events: none;
     }
@@ -181,7 +185,7 @@
         color: var(--text-heading);
         line-height: 1.4;
         font-style: italic;
-        margin: 0 0 3px 0;
+        margin: 0 0 2px 0;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
@@ -200,56 +204,30 @@
 
     /* Right Column: Editorial Minimalist Copy */
     .hero-editorial-col {
-        padding: 16px 24px 10px;
+        padding: 24px 30px 14px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         background: #FFFFFF;
     }
 
-    .hero-top-brand-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 6px;
-    }
-
-    .hero-emblem-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.6875rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--forest-800);
-        background: var(--forest-subtle);
-        border: 1px solid var(--forest-border);
-        padding: 3px 10px;
-        border-radius: var(--radius-full);
-    }
-
-    .hero-emblem-badge svg {
-        width: 12px;
-        height: 12px;
-        color: var(--forest-800);
-    }
-
     .hero-main-headline {
-        font-size: clamp(1.4rem, 1.95vw, 1.95rem);
-        font-weight: 800;
-        color: var(--text-heading);
-        line-height: 1.15;
-        letter-spacing: -0.035em;
-        margin-bottom: 6px;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(2.05rem, 2.95vw, 3.05rem);
+        font-weight: 700;
+        color: var(--forest-900);
+        line-height: 1.14;
+        letter-spacing: -0.02em;
+        margin-bottom: 12px;
+        max-width: 580px;
     }
 
     .hero-sub-tagline {
-        font-size: 0.8125rem;
+        font-size: 0.85rem;
         color: var(--text-muted);
-        line-height: 1.42;
-        margin-bottom: 10px;
-        max-width: 440px;
+        line-height: 1.55;
+        margin-bottom: 16px;
+        max-width: 510px;
     }
 
     .hero-cta-buttons-row {
@@ -270,15 +248,15 @@
         align-items: center;
         gap: 7px;
         text-decoration: none;
-        box-shadow: 0 4px 14px rgba(27, 56, 43, 0.25);
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: none;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .btn-forest-primary:hover {
         background: var(--forest-hover);
         color: #FFFFFF;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 18px rgba(27, 56, 43, 0.35);
+        transform: translateY(-1px);
+        box-shadow: none;
     }
 
     .btn-forest-primary svg { width: 14px; height: 14px; }
@@ -375,8 +353,8 @@
     }
 
     .room-card-box {
-        flex: 0 0 calc((100% - 72px) / 4);
-        min-width: 270px;
+        flex: 0 0 calc((100% - 48px) / 3);
+        min-width: 320px;
         background: #FFFFFF;
         border: 1px solid var(--border-base);
         border-radius: var(--radius-xl);
@@ -388,9 +366,9 @@
     }
 
     .room-card-box:hover {
-        transform: translateY(-4px);
+        transform: translateY(-2px);
         border-color: var(--forest-border);
-        box-shadow: var(--shadow-float);
+        box-shadow: var(--shadow-soft);
     }
 
     .room-thumb-wrap {
@@ -436,9 +414,10 @@
     }
 
     .room-title {
-        font-size: 1.125rem;
-        font-weight: 800;
-        color: var(--text-heading);
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.28rem;
+        font-weight: 700;
+        color: var(--forest-900);
         margin-bottom: 8px;
         letter-spacing: -0.02em;
     }
@@ -867,7 +846,7 @@
         border-radius: var(--radius-full);
         text-decoration: none !important;
         border: 2px solid #FFFFFF !important;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        box-shadow: none;
         transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -876,7 +855,7 @@
         color: #0A1C14 !important;
         border-color: #E8F0EC !important;
         transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        box-shadow: none;
         text-decoration: none !important;
     }
 
@@ -907,7 +886,7 @@
         color: #FFFFFF !important;
         border-color: #FFFFFF !important;
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        box-shadow: none;
         text-decoration: none !important;
     }
 
@@ -963,21 +942,13 @@
             {{-- Right Column: Editorial Copy & Minimalist Navigation --}}
             <div class="hero-editorial-col">
                 <div>
-                    <div class="hero-top-brand-row">
-                        <div class="hero-emblem-badge">
-                            <i data-lucide="trees"></i>
-                            Lumina Pasific &bull; Nature Retreat
-                        </div>
-                        <span style="font-size:0.75rem; color:var(--text-faint); font-weight:600;">Resor Bintang 5</span>
-                    </div>
-
                     <h1 class="hero-main-headline">
                         Kenyamanan Autentik di Harmoni Keasrian Alam
                     </h1>
 
                     <p class="hero-sub-tagline">
-                        Nikmati kemewahan peristirahatan kabin kayu kontemporer di tengah rerimbunan hutan pinus.
-                        Tempat di mana ketenangan alam berpadu selaras dengan keramahan berstandar sertifikasi resmi.
+                        Nikmati kemewahan peristirahatan kabin kayu kontemporer di tengah keheningan hutan pinus alami.
+                        Suasana damai nan privat yang berpadu selaras dengan keramahan berstandar sertifikasi resmi.
                     </p>
 
                     <div class="hero-cta-buttons-row">
@@ -1014,7 +985,7 @@
                                 </div>
                                 <div class="review-slide-item" data-slide="1">
                                     <p class="review-quote">"Arsitektur kabin modern terbaik dengan sarapan prasmanan organik yang sangat lezat."</p>
-                                    <div class="review-author">Amanda S. &bull; Tamu Executive</div>
+                                    <div class="review-author">Amanda S. &bull; Tamu Family Suite</div>
                                 </div>
                                 <div class="review-slide-item" data-slide="2">
                                     <p class="review-quote">"Pelayanan bintang lima dengan panorama kolam renang air hangat berkabut yang syahdu."</p>
@@ -1047,7 +1018,6 @@
     <div class="container">
         <div class="section-head-flex" data-aos="fade-up">
             <div>
-                <span class="section-eyebrow">Akomodasi Pilihan</span>
                 <h2 class="section-heading">Koleksi Pilihan Kamar</h2>
                 <p class="section-subheading">
                     Dirancang dengan estetika minimalis monokromatik netral yang menenangkan, kasur berstandar internasional,
@@ -1134,57 +1104,24 @@
                     </div>
                 </div>
 
-                {{-- Card 3: Executive --}}
-                <div class="room-card-box">
-                    <div class="room-thumb-wrap">
-                        <img class="room-thumb"
-                            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=80"
-                            alt="Kamar Executive Lumina Pasific"
-                            loading="lazy">
-                        <span class="room-badge-top">VIP Kemewahan</span>
-                    </div>
-                    <div class="room-card-content">
-                        <h3 class="room-title">Kamar Executive</h3>
-                        <p class="room-desc-text">
-                            Kemewahan privasi sejati dengan ruang tamu terpisah, jacuzzi pribadi, dan akses eksklusif Pine Hearth Lounge.
-                        </p>
-                        <div class="room-amenity-tags">
-                            <span class="amenity-chip"><i data-lucide="sparkles"></i> Jacuzzi Mandi</span>
-                            <span class="amenity-chip"><i data-lucide="armchair"></i> Living Room</span>
-                            <span class="amenity-chip"><i data-lucide="shield-check"></i> VIP Lounge</span>
-                        </div>
-                        <div class="room-price-row">
-                            <div>
-                                <span class="room-price-val">Rp 850.000</span>
-                                <span class="room-price-period">/malam</span>
-                            </div>
-                            <span style="font-size:0.75rem; color:var(--text-faint);">2-3 Tamu</span>
-                        </div>
-                        <a href="{{ route('pesan', ['tipe' => 'Executive']) }}" class="btn-luxury btn-luxury-secondary btn-luxury-sm" style="width: 100%;">
-                            <i data-lucide="calendar-check"></i>
-                            Pesan Kamar Ini
-                        </a>
-                    </div>
-                </div>
-
-                {{-- Card 4: Family Suite --}}
+                {{-- Card 3: Family Suite --}}
                 <div class="room-card-box">
                     <div class="room-thumb-wrap">
                         <img class="room-thumb"
                             src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80"
                             alt="Family Suite Lumina Pasific"
                             loading="lazy">
-                        <span class="room-badge-top">Family Retreat</span>
+                        <span class="room-badge-top">Pilihan Keluarga</span>
                     </div>
                     <div class="room-card-content">
                         <h3 class="room-title">Family Suite</h3>
                         <p class="room-desc-text">
-                            Suite luas dengan dua kamar tidur terpisah, ruang makan, pantry mini, dan balkon menghadap kolam renang air hangat.
+                            Kenyamanan luas bersama keluarga tercinta dengan 2 kamar tidur terpisah, ruang makan, mini pantry, dan balkon panorama alam.
                         </p>
                         <div class="room-amenity-tags">
-                            <span class="amenity-chip"><i data-lucide="users"></i> 4-6 Tamu</span>
+                            <span class="amenity-chip"><i data-lucide="bed-double"></i> 2 Kamar Tidur</span>
                             <span class="amenity-chip"><i data-lucide="utensils"></i> Mini Pantry</span>
-                            <span class="amenity-chip"><i data-lucide="waves"></i> Pool Balcony</span>
+                            <span class="amenity-chip"><i data-lucide="trees"></i> Balkon Alam</span>
                         </div>
                         <div class="room-price-row">
                             <div>
@@ -1193,7 +1130,7 @@
                             </div>
                             <span style="font-size:0.75rem; color:var(--text-faint);">4-6 Tamu</span>
                         </div>
-                        <a href="{{ route('pesan', ['tipe' => 'Family']) }}" class="btn-luxury btn-luxury-secondary btn-luxury-sm" style="width: 100%;">
+                        <a href="{{ route('pesan', ['tipe' => 'Family Suite']) }}" class="btn-luxury btn-luxury-secondary btn-luxury-sm" style="width: 100%;">
                             <i data-lucide="calendar-check"></i>
                             Pesan Kamar Ini
                         </a>
@@ -1218,7 +1155,6 @@
         {{-- Section Header --}}
         <div data-aos="fade-up" style="display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom: 36px;">
             <div>
-                <span class="section-eyebrow">Keasrian &amp; Eksplorasi Alam</span>
                 <h2 class="section-heading">Fasilitas &amp; Video Eksplorasi</h2>
                 <p class="section-subheading">
                     Saksikan video tur pratinjau kamar dan jelajahi fasilitas relaksasi bintang lima yang menyatu harmonis dengan keindahan hutan alam.
@@ -1248,10 +1184,6 @@
 
             <div class="video-editorial-col">
                 <div>
-                    <div class="video-badge-pill">
-                        <i data-lucide="sparkles" style="width:13px; height:13px;"></i>
-                        Tur Visual Kamar &amp; Suasana
-                    </div>
                     <h3 class="video-room-headline">
                         Eksplorasi Suasana Autentik Lumina Pasific
                     </h3>
@@ -1360,7 +1292,6 @@
     <div class="container">
         <div class="ballroom-grid-split">
             <div data-aos="fade-up">
-                <span class="section-eyebrow">Momen Spesial &amp; Perayaan</span>
                 <h2 class="section-heading">Grand Forest Ballroom &amp; Ruang Acara</h2>
                 <p class="section-subheading">
                     Abadikan perayaan terindah dalam hidup Anda. Lumina Pasific menyediakan ruang perjamuan berteknologi akustik canggih
@@ -1496,7 +1427,7 @@
             const width = track.parentElement.clientWidth;
             if (width < 640) return 1;
             if (width < 1024) return 2;
-            return 4;
+            return 3;
         }
 
         function getMaxIndex() {

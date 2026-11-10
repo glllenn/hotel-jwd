@@ -287,7 +287,6 @@
 <section class="riwayat-hero">
     <div class="container">
         <div data-aos="fade-up">
-            <span class="section-eyebrow">Data Resmi Tersimpan</span>
             <h1 class="section-heading">Riwayat &amp; Bukti Reservasi Kamar</h1>
             <p class="section-subheading" style="margin: 10px auto 0;">
                 Seluruh data pemesanan kamar yang telah terkonfirmasi dan tersimpan aman di basis data hotel.
@@ -307,10 +306,6 @@
                 Menampilkan <strong>{{ $riwayat->count() }}</strong> data reservasi terdaftar
             </div>
             <div style="display:flex; gap:10px;">
-                <button type="button" onclick="window.print()" class="btn-luxury btn-luxury-secondary btn-luxury-sm">
-                    <i data-lucide="printer"></i>
-                    Cetak Riwayat
-                </button>
                 <a href="{{ route('pesan') }}" class="btn-luxury btn-luxury-primary btn-luxury-sm">
                     <i data-lucide="calendar-plus"></i>
                     Pesan Kamar Baru
@@ -338,10 +333,11 @@
                 @foreach($riwayat as $item)
                 @php
                     $roomImages = [
-                        'Standar'   => 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80',
-                        'Deluxe'    => 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&q=80',
-                        'Executive' => 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80',
-                        'Family'    => 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80',
+                        'Standar'      => 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80',
+                        'Deluxe'       => 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&q=80',
+                        'Family Suite' => 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80',
+                        'Family'       => 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80',
+                        'Executive'    => 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80',
                     ];
                     $imgUrl = $roomImages[$item->tipe_kamar] ?? $roomImages['Standar'];
                 @endphp
@@ -445,6 +441,10 @@
                         </div>
 
                         <div class="booking-actions-group">
+                            <a href="{{ route('pesan.invoice', $item->id) }}" class="btn-invoice-link" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:var(--radius-full); border:1px solid var(--forest-800); background:#FFFFFF; color:var(--forest-800); font-size:0.8125rem; font-weight:700; text-decoration:none; transition:all 0.2s;">
+                                <i data-lucide="receipt" style="width:14px; height:14px;"></i>
+                                Cetak Invoice
+                            </a>
                             <form method="POST" action="{{ route('riwayat.hapus', $item->id) }}"
                                 onsubmit="return confirm('Hapus data reservasi atas nama {{ $item->nama_pemesan }}?')">
                                 @csrf

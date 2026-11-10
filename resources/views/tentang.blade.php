@@ -67,14 +67,14 @@
         border: 1px solid var(--border-base);
         border-radius: var(--radius-xl);
         padding: 28px 24px;
-        box-shadow: var(--shadow-subtle);
+        box-shadow: none;
         transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
     .pillar-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--forest-border);
-        box-shadow: 0 10px 25px -4px rgba(27, 56, 43, 0.08);
+        transform: translateY(-2px);
+        border-color: var(--forest-accent);
+        box-shadow: none;
     }
 
     .pillar-icon-box {
@@ -286,14 +286,14 @@
         border: 1px solid var(--border-base);
         border-radius: var(--radius-xl);
         padding: 28px 22px;
-        box-shadow: var(--shadow-subtle);
-        transition: all 0.3s ease;
+        box-shadow: none;
+        transition: all 0.25s ease;
     }
 
     .sustain-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--forest-border);
-        box-shadow: var(--shadow-soft);
+        transform: translateY(-2px);
+        border-color: var(--forest-accent);
+        box-shadow: none;
     }
 
     .sustain-icon {
@@ -345,16 +345,16 @@
         border: 1px solid var(--border-base);
         border-radius: var(--radius-xl);
         overflow: hidden;
-        box-shadow: var(--shadow-subtle);
-        transition: all 0.3s ease;
+        box-shadow: none;
+        transition: all 0.25s ease;
         display: flex;
         flex-direction: column;
     }
 
     .location-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--forest-border);
-        box-shadow: 0 12px 30px rgba(27, 56, 43, 0.08);
+        transform: translateY(-2px);
+        border-color: var(--forest-accent);
+        box-shadow: none;
     }
 
     .location-thumb {
@@ -520,8 +520,8 @@
         justify-content: center;
         gap: 8px;
         text-decoration: none !important;
-        box-shadow: 0 4px 14px rgba(27, 56, 43, 0.25);
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: none;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         border: none;
         cursor: pointer;
         white-space: nowrap;
@@ -530,8 +530,8 @@
     .btn-forest-primary:hover {
         background: var(--forest-hover);
         color: #FFFFFF !important;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(27, 56, 43, 0.35);
+        transform: translateY(-1px);
+        box-shadow: none;
         text-decoration: none !important;
     }
 
@@ -577,7 +577,7 @@
         gap: 6px;
         text-decoration: none !important;
         transition: all 0.2s ease;
-        box-shadow: 0 2px 8px rgba(27, 56, 43, 0.2);
+        box-shadow: none;
         border: none;
         cursor: pointer;
         white-space: nowrap;
@@ -587,7 +587,7 @@
         background: var(--forest-hover);
         color: #FFFFFF !important;
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(27, 56, 43, 0.3);
+        box-shadow: none;
         text-decoration: none !important;
     }
 
@@ -613,7 +613,7 @@
         color: #FFFFFF !important;
         border-color: var(--forest-800);
         transform: translateY(-1px);
-        box-shadow: 0 3px 10px rgba(27, 56, 43, 0.2);
+        box-shadow: none;
     }
 
     .contact-link-pill svg { width: 14px; height: 14px; }
@@ -646,7 +646,6 @@
     <div class="container">
         <div class="about-story-grid">
             <div data-aos="fade-up">
-                <span class="section-eyebrow">Warisan &amp; Filosofi Keasrian</span>
                 <h1 class="section-heading">
                     Menghidupkan Kembali Keanggunan Keramahan di Tengah Harmoni Alam
                 </h1>
@@ -730,7 +729,6 @@
 <section class="section-culinary" id="kuliner">
     <div class="container">
         <div data-aos="fade-up">
-            <span class="section-eyebrow">Gastronomi &amp; Dapur Alam</span>
             <h2 class="section-heading">The Artisan Kitchen: Cita Rasa Murni dari Alam</h2>
             <p class="section-subheading">
                 Kami meyakini bahwa sebuah pengalaman menginap mewah tidak pernah lengkap tanpa kelezatan kuliner
@@ -848,7 +846,6 @@
 <section class="section-sustainability">
     <div class="container">
         <div data-aos="fade-up">
-            <span class="section-eyebrow">Harmoni Lingkungan</span>
             <h2 class="section-heading">Komitmen Keberlanjutan Alam Lumina Pasific</h2>
             <p class="section-subheading">
                 Kami berkomitmen menjaga kelestarian ekosistem hutan dan memberdayakan komunitas petani lokal di setiap destinasi properti kami.
@@ -905,7 +902,6 @@
 <section class="section-locations" id="lokasi">
     <div class="container">
         <div data-aos="fade-up">
-            <span class="section-eyebrow">Destinasi Utama</span>
             <h2 class="section-heading">Jaringan Resor Lumina Pasific</h2>
             <p class="section-subheading">
                 Pilih lokasi peristirahatan tujuan Anda di kawasan asri pegunungan dan pantai Indonesia di bawah naungan JWD Hotel Group.
@@ -986,7 +982,6 @@
 <section class="section-contact" id="kontak">
     <div class="container">
         <div data-aos="fade-up">
-            <span class="section-eyebrow">Layanan &amp; Komunikasi</span>
             <h2 class="section-heading">Hubungi Tim Layanan Tamu</h2>
             <p class="section-subheading">
                 Konsultasikan rencana liburan, reservasi rombongan, atau paket acara istimewa Anda bersama tim concierge kami.

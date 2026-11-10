@@ -94,78 +94,82 @@
         }
 
         /* ============================================================
-           FLOATING NAVBAR — Extended Luxury Island Aligned with Grid
-           Initially attached to the page; floats as island on scroll
+           STICKY NAVBAR — Clean Modern Rectangular Header (Kotak)
+           Initially seamless with page; turns into clean solid box on scroll
            ============================================================ */
         .navbar-floating-container {
             position: fixed;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
+            left: 0;
+            right: 0;
             width: 100%;
-            max-width: 1240px;
-            padding: 8px 28px 0;
-            transition: top 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1000;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            border-radius: 0;
+            box-shadow: none;
+            transition: background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, backdrop-filter 0.28s ease;
         }
 
         .navbar-floating-container.is-scrolled {
-            top: 10px;
-            padding: 0 28px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-base);
+            box-shadow: 0 4px 20px -2px rgba(18, 38, 28, 0.06);
         }
 
         .navbar-floating {
             position: relative;
             background: transparent;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border: 1px solid transparent;
-            border-radius: var(--radius-full);
+            border-radius: 0;
+            border: none;
             box-shadow: none;
-            padding: 6px 14px;
+            padding: 22px 28px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+            max-width: 1240px;
+            margin: 0 auto;
+            transition: padding 0.28s ease;
         }
 
         .navbar-floating-container.is-scrolled .navbar-floating {
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-color: var(--border-base);
-            box-shadow: 0 10px 30px -4px rgba(18, 38, 28, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+            padding-top: 14px;
+            padding-bottom: 14px;
         }
 
-        /* Brand Pill */
+        /* Luxury Brand Typographic Wordmark */
         .nav-brand {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 6px 12px;
-            color: var(--text-heading);
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 0.9375rem;
-            letter-spacing: -0.02em;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none !important;
+            line-height: 1.15;
+            padding: 2px 0;
         }
 
-        .nav-brand-logo {
-            width: 24px;
-            height: 24px;
-            border-radius: 6px;
-            background: var(--text-heading);
-            color: #FFFFFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .nav-brand-wordmark {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--forest-900);
+            transition: color 0.2s ease;
         }
 
-        .nav-brand-logo svg {
-            width: 14px;
-            height: 14px;
-            stroke-width: 2.2;
+        .nav-brand-sub {
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--forest-accent);
+            margin-top: 2px;
+        }
+
+        .nav-brand:hover .nav-brand-wordmark {
+            color: var(--forest-accent);
         }
 
         /* Nav Links Track */
@@ -173,46 +177,41 @@
             position: relative;
             display: flex;
             align-items: center;
-            gap: 2px;
-        }
-
-        /* Sliding Pill Effect */
-        .nav-indicator-pill {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            border-radius: var(--radius-full);
-            background: #F1F5F9;
-            pointer-events: none;
-            opacity: 0;
-            transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
-                        width 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
-                        opacity 0.2s ease;
-            z-index: 1;
+            gap: 6px;
         }
 
         .nav-item-link {
             position: relative;
-            z-index: 2;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 7px;
             padding: 8px 16px;
-            font-size: 0.8125rem;
+            font-size: 0.875rem;
             font-weight: 600;
             color: var(--text-muted);
-            text-decoration: none;
-            border-radius: var(--radius-full);
+            text-decoration: none !important;
             transition: color 0.2s ease;
             white-space: nowrap;
+            background: transparent !important;
         }
 
-        .nav-item-link svg {
-            width: 14px;
-            height: 14px;
-            stroke-width: 2;
-            transition: transform 0.2s ease, stroke 0.2s ease;
+        /* Elegant Underline Hover & Active (No Background Color Change) */
+        .nav-item-link:not(.nav-cta)::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 16px;
+            right: 16px;
+            height: 2px;
+            background: var(--forest-800);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-item-link:not(.nav-cta):hover::after,
+        .nav-item-link:not(.nav-cta).active::after {
+            transform: scaleX(1);
         }
 
         .nav-item-link:hover {
@@ -220,35 +219,34 @@
         }
 
         .nav-item-link.active {
-            color: var(--text-heading);
+            color: var(--forest-800);
             font-weight: 700;
         }
 
         .nav-item-link.nav-cta {
-            background: var(--forest-800);
-            color: #FFFFFF;
-            margin-left: 6px;
-            padding: 8px 18px;
-            box-shadow: 0 2px 10px rgba(27, 56, 43, 0.25);
+            background: var(--forest-800) !important;
+            color: #FFFFFF !important;
+            margin-left: 10px;
+            padding: 9px 22px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            box-shadow: none;
             transition: all 0.2s ease;
         }
 
         .nav-item-link.nav-cta:hover {
-            background: var(--forest-hover);
-            color: #FFFFFF;
+            background: var(--forest-hover) !important;
+            color: #FFFFFF !important;
             transform: translateY(-1px);
-            box-shadow: 0 4px 14px rgba(27, 56, 43, 0.35);
-        }
-
-        .nav-item-link.nav-cta svg {
-            stroke: #FFFFFF;
+            box-shadow: none;
         }
 
         /* ============================================================
            MAIN CONTENT & WRAPPER
            ============================================================ */
         .site-content {
-            padding-top: 58px;
+            padding-top: 86px;
             min-height: 100vh;
         }
 
@@ -316,10 +314,11 @@
         }
 
         .section-heading {
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: clamp(1.85rem, 3.2vw, 2.75rem);
             font-weight: 700;
             color: var(--text-heading);
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
             line-height: 1.2;
         }
 
@@ -406,7 +405,7 @@
             justify-content: center;
             gap: 8px;
             text-decoration: none !important;
-            box-shadow: 0 4px 14px rgba(27, 56, 43, 0.25);
+            box-shadow: none;
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             border: none;
             cursor: pointer;
@@ -417,7 +416,7 @@
             background: var(--forest-hover);
             color: #FFFFFF !important;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(27, 56, 43, 0.35);
+            box-shadow: none;
             text-decoration: none !important;
         }
 
@@ -463,7 +462,7 @@
             gap: 6px;
             text-decoration: none !important;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(27, 56, 43, 0.2);
+            box-shadow: none;
             border: none;
             cursor: pointer;
             white-space: nowrap;
@@ -473,7 +472,7 @@
             background: var(--forest-hover);
             color: #FFFFFF !important;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(27, 56, 43, 0.3);
+            box-shadow: none;
             text-decoration: none !important;
         }
 
@@ -642,19 +641,16 @@
                 top: 0;
                 right: 0;
                 left: 0;
-                transform: none;
-                max-width: none;
                 width: 100%;
-                padding: 4px 12px;
+                border-radius: 0;
             }
 
             .navbar-floating-container.is-scrolled {
-                top: 8px;
-                padding: 0 12px;
+                top: 0;
             }
 
             .navbar-floating {
-                padding: 4px 8px;
+                padding: 6px 16px;
                 justify-content: space-between;
             }
 
@@ -687,48 +683,32 @@
     <div class="navbar-floating-container">
         <nav class="navbar-floating" id="floatingNav">
             <a href="{{ route('home') }}" class="nav-brand">
-                <div class="nav-brand-logo" style="background: var(--forest-800);">
-                    <i data-lucide="trees"></i>
-                </div>
-                <span>Lumina Pasific</span>
+                <span class="nav-brand-wordmark">Lumina Pasific</span>
+                <span class="nav-brand-sub">Luxury Nature Retreat</span>
             </a>
 
             <div class="nav-links-track" id="navLinksTrack">
-                {{-- Sliding Hover/Active Pill Indicator --}}
-                <div class="nav-indicator-pill" id="navIndicator"></div>
-
                 <a href="{{ route('home') }}"
                    class="nav-item-link {{ request()->routeIs('home') ? 'active' : '' }}"
                    data-nav="home">
-                    <i data-lucide="home"></i>
                     <span>Beranda</span>
                 </a>
 
                 <a href="{{ route('tentang') }}"
                    class="nav-item-link {{ request()->routeIs('tentang') ? 'active' : '' }}"
                    data-nav="tentang">
-                    <i data-lucide="info"></i>
                     <span>Tentang Kami</span>
                 </a>
 
                 <a href="{{ route('harga') }}"
                    class="nav-item-link {{ request()->routeIs('harga') ? 'active' : '' }}"
                    data-nav="harga">
-                    <i data-lucide="sparkles"></i>
                     <span>Daftar Harga</span>
-                </a>
-
-                <a href="{{ route('riwayat') }}"
-                   class="nav-item-link {{ request()->routeIs('riwayat') ? 'active' : '' }}"
-                   data-nav="riwayat">
-                    <i data-lucide="receipt"></i>
-                    <span>Riwayat</span>
                 </a>
 
                 <a href="{{ route('pesan') }}"
                    class="nav-item-link nav-cta {{ request()->routeIs('pesan') ? 'active' : '' }}"
                    data-nav="pesan">
-                    <i data-lucide="calendar-check"></i>
                     <span>Reservasi</span>
                 </a>
             </div>
@@ -772,10 +752,9 @@
             <div class="footer-grid">
                 <div>
                     <div class="footer-brand-title">
-                        <div class="nav-brand-logo" style="width:28px; height:28px; background:var(--forest-800);">
-                            <i data-lucide="trees"></i>
-                        </div>
-                        Lumina Pasific &mdash; JWD Hotel Group
+                        <i data-lucide="trees" style="width:22px; height:22px; color:var(--forest-accent); stroke-width:2.2;"></i>
+                        <span class="font-serif">Lumina Pasific</span>
+                        <span style="font-size:0.875rem; font-weight:600; color:var(--text-muted);">&mdash; JWD Hotel Group</span>
                     </div>
                     <p class="footer-brand-desc">
                         Menghadirkan standar keramahan bintang lima bernuansa alam dengan dedikasi penuh pada kenyamanan,
@@ -790,7 +769,6 @@
                         <li><a href="{{ route('tentang') }}">Tentang Kami</a></li>
                         <li><a href="{{ route('harga') }}">Daftar Harga</a></li>
                         <li><a href="{{ route('pesan') }}">Reservasi Kamar</a></li>
-                        <li><a href="{{ route('riwayat') }}">Riwayat Pemesanan</a></li>
                     </ul>
                 </div>
 
@@ -855,42 +833,6 @@
             }
             window.addEventListener('scroll', updateNavScrollState, { passive: true });
             updateNavScrollState();
-
-            // 3. Sliding Indicator Pill in Floating Navbar
-            const track = document.getElementById('navLinksTrack');
-            const pill  = document.getElementById('navIndicator');
-            const links = track.querySelectorAll('.nav-item-link:not(.nav-cta)');
-            const activeLink = track.querySelector('.nav-item-link.active:not(.nav-cta)');
-
-            function movePillTo(element) {
-                if (!element || !pill) return;
-                const trackRect = track.getBoundingClientRect();
-                const elemRect  = element.getBoundingClientRect();
-
-                const left  = elemRect.left - trackRect.left;
-                const width = elemRect.width;
-
-                pill.style.transform = `translateX(${left}px)`;
-                pill.style.width     = `${width}px`;
-                pill.style.opacity   = '1';
-            }
-
-            function resetPill() {
-                if (activeLink) {
-                    movePillTo(activeLink);
-                } else {
-                    pill.style.opacity = '0';
-                }
-            }
-
-            links.forEach(link => {
-                link.addEventListener('mouseenter', () => movePillTo(link));
-            });
-
-            track.addEventListener('mouseleave', resetPill);
-
-            // Initial positioning
-            resetPill();
 
             // 3. Animation On Scroll (AOS) using IntersectionObserver
             const animatedElements = document.querySelectorAll('[data-aos]');

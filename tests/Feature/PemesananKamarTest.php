@@ -20,7 +20,6 @@ test('halaman harga dapat diakses dan menampilkan paket kamar', function () {
     $response->assertSee('Koleksi Kamar &amp; Pilihan Tarif', false);
     $response->assertSee('Standar');
     $response->assertSee('Deluxe');
-    $response->assertSee('Executive');
     $response->assertSee('Family Suite');
 });
 
@@ -70,6 +69,22 @@ test('validasi durasi menginap wajib berupa angka', function () {
     ]);
 });
 
+test('validasi nama pemesan wajib hanya berupa huruf dan spasi tanpa angka', function () {
+    $response = $this->post('/pesan', [
+        'nama_pemesan'    => 'Glenn Marcel 123', // Mengandung angka
+        'jenis_kelamin'   => 'Laki-laki',
+        'nomor_identitas' => '3273012505980001',
+        'lokasi_hotel'    => 'JWD Sudirman Jakarta',
+        'tipe_kamar'      => 'Deluxe',
+        'tanggal_pesan'   => '2026-11-10',
+        'durasi_menginap' => 2,
+    ]);
+
+    $response->assertSessionHasErrors([
+        'nama_pemesan' => 'Nama pemesan hanya boleh berisi huruf dan spasi.',
+    ]);
+});
+
 test('pemesanan kamar berhasil disimpan dengan kalkulasi diskon dan breakfast', function () {
     $response = $this->post('/pesan', [
         'nama_pemesan'       => 'Glenn Marcel',
@@ -82,7 +97,8 @@ test('pemesanan kamar berhasil disimpan dengan kalkulasi diskon dan breakfast', 
         'termasuk_breakfast' => '1', // 80.000 * 4 = 320.000
     ]);
 
-    $response->assertRedirect('/riwayat');
+    $pemesanan = PemesananKamar::where('nomor_identitas', '3273012505980001')->first();
+    $response->assertRedirect(route('pesan.invoice', $pemesanan->id));
     $response->assertSessionHas('success', 'Reservasi kamar berhasil disimpan.');
 
     $this->assertDatabaseHas('pemesanan_kamar', [
@@ -96,6 +112,33 @@ test('pemesanan kamar berhasil disimpan dengan kalkulasi diskon dan breakfast', 
         'diskon'             => 220000,  // 10% dari 2.200.000
         'biaya_breakfast'    => 320000,  // 80.000 * 4
         'total_bayar'        => 2300000, // 2.200.000 - 220.000 + 320.000
+    ]);
+});
+
+test('pemesanan family suite berhasil disimpan dengan kalkulasi yang benar', function () {
+    $response = $this->post('/pesan', [
+        'nama_pemesan'       => 'Glenn Marcel Keluarga',
+        'jenis_kelamin'      => 'Laki-laki',
+        'nomor_identitas'    => '3273012505980005',
+        'lokasi_hotel'       => 'JWD Sudirman Jakarta',
+        'tipe_kamar'         => 'Family Suite',
+        'tanggal_pesan'      => '2026-11-20',
+        'durasi_menginap'    => 5,
+        'termasuk_breakfast' => '1',
+    ]);
+
+    $pemesanan = PemesananKamar::where('nomor_identitas', '3273012505980005')->first();
+    $response->assertRedirect(route('pesan.invoice', $pemesanan->id));
+
+    $this->assertDatabaseHas('pemesanan_kamar', [
+        'nomor_identitas' => '3273012505980005',
+        'tipe_kamar'      => 'Family Suite',
+        'harga_kamar'     => 1200000,
+        'durasi_menginap' => 5,
+        'subtotal'        => 6000000,
+        'diskon'          => 600000,
+        'biaya_breakfast' => 400000,
+        'total_bayar'     => 5800000,
     ]);
 });
 
